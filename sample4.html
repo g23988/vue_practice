@@ -9,6 +9,7 @@
 <body>
 
   <div id="app">
+    <tw-dateinput></tw-dateinput>
   </div>
 </body>
 
@@ -16,9 +17,9 @@
 
 <template id="tw-date-input-template">
     <div>
-      <input type="number" v-model="year">
-      <input type="number" v-model="month">
-      <input type="number" v-model="day">
+      <input type="number" v-model="year" @keyup="emitDate">
+      <input type="number" v-model="month" @keyup="emitDate">
+      <input type="number" v-model="day" @keyup="emitDate">
     </div>
 </template>
 
@@ -37,6 +38,16 @@
         month:"",
         day:"",
         d:null
+      }
+    },
+    methods:{
+      emitData: function(){
+        if(this.year !="" &&
+          this.month != "" &&
+          this.day != ""){
+            var westDate = (this.year + 1911) + '/' + this.month + '/' + this.day;
+            this.$emit('input',westDate);
+          }
       }
     }
   })
