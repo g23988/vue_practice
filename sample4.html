@@ -40,6 +40,11 @@
         d:null
       }
     },
+    watch:{
+        value: function(){
+          this.westDate2TwDate();
+        }
+    },
     methods: {
       emitDate: function(){
         if(this.year !="" &&
@@ -48,14 +53,25 @@
             var westDate = (this.year + 1911) + '/' + this.month + '/' + this.day;
             this.$emit('input',westDate);
           }
+      },
+      westDate2TwDate: function(){
+        if(this.value != "" && this.value != null && this.value != undefined){
+            var d = new Date(this.value);
+            this.year = d.getFullYear() - 1911;
+            this.month = d.getMonth() +1 ;
+            this.day = d.getDate();
+        }
       }
+    },
+    mounted: function(){
+        this.westDate2TwDate();
     }
   })
 
   var app = new Vue({
     el: '#app',
     data:{
-      parentDate:""
+      parentDate:"1990/1/1"
     },
     methods:{
 
