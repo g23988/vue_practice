@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue js 練習 (component)</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <!-- 注意這邊如果用caml方式命名，要多加一個-, html原生不支援caml -->
+  <div id="app">
+    <sample-component msg="from parent">
+
+
+    </sample-component>
+  </div>
+</body>
+
+
+<!-- 這招可以用來引入外步
+  template: '#sample-component-template',
+-->
+<template id="sample-component-template">
+  <div>
+    {{msg}}
+  </div>
+</template>
+
+<script>
+  Vue.component('sampleComponent',{
+    template: '#sample-component-template',
+    props:["msg"],
+    data: function(){
+      return{
+
+      }
+    }
+  })
+
+  var app = new Vue({
+    el: '#app',
+    data:{
+
+    }
+  })
+</script>
+
+</html>
