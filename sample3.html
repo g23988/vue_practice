@@ -22,7 +22,7 @@
 -->
 <template id="sample-component-template">
   <div>
-    {{msg}}
+    <button @click="emitData">Emit</button>
   </div>
 </template>
 
@@ -38,6 +38,11 @@
     data: function(){
       return{
 
+      }
+    },
+    methods: {
+      emitData:function(){
+        this.$emit('onClildClicked', 2)
       }
     }
   })
