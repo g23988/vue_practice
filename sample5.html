@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue js 練習 (lifecycle)</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- <div>
+        {{message}}
+    </div> -->
+    <!-- <input type="text" v-model="model.name">
+    <input type="text" v-model="model.email">
+    <div>
+        name: {{model.name}}
+    </div>
+    <div>
+        email: {{model.email}}
+    </div> -->
+  </div>
+
+</body>
+
+
+
+<script>
+
+  var app = new Vue({
+    el: '#app',
+    template:'<div>{{message}}</div>',
+    data:{
+      message: "hello"
+    }
+  })
+</script>
+
+</html>
