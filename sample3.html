@@ -9,8 +9,7 @@
 <body>
   <!-- 注意這邊如果用caml方式命名，要多加一個-, html原生不支援caml -->
   <div id="app">
-    <sample-component >
-
+    <sample-component v-on:on-clild-clicked="handleChildClicked">
 
     </sample-component>
   </div>
@@ -42,7 +41,7 @@
     },
     methods: {
       emitData:function(){
-        this.$emit('onClildClicked', 2)
+        this.$emit('on-clild-clicked', 2)
       }
     }
   })
@@ -51,6 +50,11 @@
     el: '#app',
     data:{
       parentMsg: 1
+    },
+    methods:{
+      handleChildClicked: function(){
+        console.log('got omit event from child')
+      }
     }
   })
 </script>
