@@ -9,7 +9,7 @@
 <body>
   <!-- 注意這邊如果用caml方式命名，要多加一個-, html原生不支援caml -->
   <div id="app">
-    <sample-component msg="from parent">
+    <sample-component v-bind:msg="parentMsg">
 
 
     </sample-component>
@@ -40,7 +40,7 @@
   var app = new Vue({
     el: '#app',
     data:{
-
+      parentMsg: "from parent in modul"
     }
   })
 </script>
