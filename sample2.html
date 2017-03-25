@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue js 練習</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{fullName}}
+  </div>
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    computed:{
+        fullName:function(){
+          return this.firstName + " " + this.lastName;
+        }
+    },
+    data:{
+      firstName: "Wei",
+      lastName: "Liu"
+    }
+  })
+</script>
+
+</html>
