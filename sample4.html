@@ -9,7 +9,7 @@
 <body>
 
   <div id="app">
-    <tw-dateinput></tw-dateinput>
+    <tw-dateinput v-model="parentDate"></tw-dateinput>
   </div>
 </body>
 
@@ -55,7 +55,7 @@
   var app = new Vue({
     el: '#app',
     data:{
-      parentMsg: 1
+      parentDate:""
     },
     methods:{
 
