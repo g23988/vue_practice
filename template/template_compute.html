@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+	<div id="app">
+		{{number + 1}} <br>
+		{{ok ? 'YES':'NO'}} <br>
+		{{ message.split('').reverse().join('') }} <br>
+		<div v-bind:id="'list-' + id">list-{{id}}</div>
+		<p v-if="seen">Now you see me</p>
+		<a v-bind:href="url">{{url}}</a>
+		<button v-on:click="doSomething">click me</button>
+	</div>
+</body>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data:{
+			number : 1,
+			ok : true,
+			message : 'hello world!',
+			id : 200,
+			seen : true,
+			url : "https://www.google.com.tw"
+		},
+		methods:{
+			doSomething: function(){
+				console.log('ininder')
+			}
+		}
+	})
+</script>
+</html>
