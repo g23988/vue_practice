@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+	{{message.split('').reverse().join('')}} <br>
+	Compute Test : {{reversedMessage}} <br>
+	Date : {{now}}
+</div>
+</body>
+<script>
+	var app = new Vue({
+		el:'#app',
+		data:{
+			message: 'Hello World!'
+		},
+		computed:{
+			reversedMessage :function(){
+				return this.message.split('').reverse().join('');
+			},
+			now: function(){
+				return Date.now();
+			}
+		}
+	})
+	console.log(app.reversedMessage);
+	app.message = "QQ in my house";
+	console.log(app.reversedMessage);
+</script>
+</html>
