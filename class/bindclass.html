@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<style>
+  .active {
+    color: red;
+  }
+  .static {
+    border-color: blue;
+    border-style: dotted;
+  }
+  .text-danger{
+    font-style: italic;
+  }
+
+</style>
+<body>
+  <div id='app'>
+    <div :class='{ active: isActive}'>class 1</div>
+    <div class="static" :class="{ active: isActive,'text-danger':hasError}">
+      class2
+    </div>
+    <div :class="classObject">class3</div>
+    <div :class="computedObject">class4</div>
+    <!-- multi class -->
+    <div :class="[activeClass,errorClass]">class 5</div>
+    <!--  temary conditional operator-->
+    <div :class="[isActive ? activeClass : '', errorClass]">class 6</div>
+    <div :class="[{active:isActive},errorClass]">class 7</div>
+  </div>
+</body>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data:{
+      isActive: true,
+      hasError:false,
+      classObject:{
+        active: true,
+        'text-danger':true
+      },
+      error: null,
+      activeClass:'active',
+      errorClass:'text-danger'
+    },
+    computed:{
+      computedObject: function(){
+        return {
+          active: this.isActive && !this.error,
+          'text-danger': this.error && this.error.type === 'fatal'
+        }
+      }
+    }
+
+  });
+</script>
+</html>
