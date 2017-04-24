@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+  <!--  不會重新渲染-->
+  <div id="app">
+    <div v-if="logType === 'username'">
+      <label>username</label>
+      <input placeholder="username">
+    </div>
+    <div v-else>
+      <label>email</label>
+      <input placeholder="email">
+    </div>
+    <button @click="toggleBtn">toggle</button>
+  </div>
+  <!--  use key 渲染-->
+  <div id="app2">
+    <div v-if="logType === 'username'">
+      <label>username</label>
+      <input placeholder="username" key="username">
+    </div>
+    <div v-else>
+      <label>email</label>
+      <input placeholder="email" key="email">
+    </div>
+    <button @click="toggleBtn">Toggle</button>
+    <h1 v-show="ok">Hello!</h1>
+  </div>
+</body>
+<script>
+var app = new Vue({
+  el:"#app",
+  data:{
+    logType : "username",
+  },
+  methods:{
+    toggleBtn:function(){
+      return this.logType = (this.logType === 'username') ? 'email' : 'username';
+    }
+  }
+});
+
+var app2 = new Vue({
+  el:'#app2',
+  data:{
+    logType : "username",
+    ok: true,
+  },
+  methods:{
+    toggleBtn: function(){
+      return this.logType = (this.logType === 'username') ? 'email' : 'username';
+    }
+  }
+});
+</script>
+</html>

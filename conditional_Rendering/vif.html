@@ -9,6 +9,41 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
 </head>
 <body>
+  <div id="app">
+    <h1 v-if=true>Yes</h1>
+    <h1 v-else>No</h1>
+    <template v-if=false>
+      <h1>Title</h1>
+      <p>Paragraph 1</p>
+      <p>Paragraph 2</p>
+    </template>
+    <div v-if="Math.random() > 0.5">
+      u can see me
+    </div>
+    <div v-else>
+      u are blind
+    </div>
+    <div v-if="key === 'A'">
+      A
+    </div>
+    <div v-else-if="key === 'B'">
+      B
+    </div>
+    <div v-else-if="key === 'C'">
+      C
+    </div>
+    <div v-else>
+      not ABC
+    </div>
+  </div>
 
 </body>
+<script>
+  var app = new Vue({
+    el:"#app",
+    data:{
+      key: 'A',
+    }
+  })
+</script>
 </html>
